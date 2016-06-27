@@ -30,7 +30,12 @@ public class Main {
             unit=in.next();
             System.out.print("price:");
             price=in.nextFloat();
-            code=(((int)(barcode.charAt(0)))-48)+(((int)(barcode.charAt(1)))-48)*10+(((int)(barcode.charAt(2)))-48)*100+(((int)(barcode.charAt(3)))-48)*1000+(((int)(barcode.charAt(4)))-48)*10000+(((int)(barcode.charAt(5)))-48)*100000;
+            code=(((int)(barcode.charAt(9)))-48)
+                    +(((int)(barcode.charAt(8)))-48)*10
+                    +(((int)(barcode.charAt(7)))-48)*100
+                    +(((int)(barcode.charAt(6)))-48)*1000
+                    +(((int)(barcode.charAt(5)))-48)*10000
+                    +(((int)(barcode.charAt(4)))-48)*100000;
             if(h[code]==0)
             {
                 a[code]=new goods(barcode,name,unit,price);

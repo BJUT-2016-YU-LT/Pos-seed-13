@@ -8,6 +8,7 @@ public class goods {
     private String name;
     private String unit;
     private float price;
+    public int num;
 
     goods(String a, String b, String c, float d) {
         barcode = a;
