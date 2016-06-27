@@ -19,8 +19,10 @@ public class Main {
         }
         goods[] a=new goods[1000000];
         int choose;
+        int j=0;
         while(true)
         {
+
             Scanner in=new Scanner(System.in);
             System.out.print("barcode:");
             barcode=in.next();
@@ -30,6 +32,34 @@ public class Main {
             unit=in.next();
             System.out.print("price:");
             price=in.nextFloat();
+           /* if(j<5)
+            {
+                barcode="ITEM000000";
+                name="可口可乐";
+                unit="瓶";
+                price=3;
+            }
+            if(j==5)
+            {
+                barcode="ITEM000001";
+                name="雪碧";
+                unit="瓶";
+                price=3;
+            }
+            if(j==6)
+            {
+                barcode="ITEM000001";
+                name="雪碧";
+                unit="瓶";
+                price=3;
+            }
+            else
+            {
+                barcode="ITEM000004";
+                name="电池";
+                unit="个";
+                price=2;
+            }*/
             code=(((int)(barcode.charAt(9)))-48)
                     +(((int)(barcode.charAt(8)))-48)*10
                     +(((int)(barcode.charAt(7)))-48)*100
@@ -51,6 +81,7 @@ public class Main {
             {
                 break;
             }
+            //j++;
         }
         System.out.println("***商店购物清单***");
         float total = 0;
