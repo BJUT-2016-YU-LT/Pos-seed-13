@@ -68,13 +68,11 @@ public class Main {
                     +(((int)(barcode.charAt(4)))-48)*100000;
             if(h[code]==0)
             {
-                System.out.printf("%d\n",j);
                 a[code]=new goods(barcode,name,unit,price);
                 h[code]++;
             }
             else
             {
-                System.out.printf("%d\n",j);
                 h[code]++;
             }
             /*System.out.println("If continue?1.yes\t2.no");
