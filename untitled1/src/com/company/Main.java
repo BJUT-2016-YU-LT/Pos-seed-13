@@ -20,10 +20,10 @@ public class Main {
         goods[] a=new goods[1000000];
         int choose;
         int j=0;
-        while(true)
+        for(j=0;j<8;j++)
         {
 
-            Scanner in=new Scanner(System.in);
+            /*Scanner in=new Scanner(System.in);
             System.out.print("barcode:");
             barcode=in.next();
             System.out.print("name:");
@@ -31,22 +31,22 @@ public class Main {
             System.out.print("unit:");
             unit=in.next();
             System.out.print("price:");
-            price=in.nextFloat();
-           /* if(j<5)
+            price=in.nextFloat();*/
+            if(j<5)
             {
                 barcode="ITEM000000";
                 name="可口可乐";
                 unit="瓶";
                 price=3;
             }
-            if(j==5)
+            else if(j==5)
             {
                 barcode="ITEM000001";
                 name="雪碧";
                 unit="瓶";
                 price=3;
             }
-            if(j==6)
+            else if(j==6)
             {
                 barcode="ITEM000001";
                 name="雪碧";
@@ -59,7 +59,7 @@ public class Main {
                 name="电池";
                 unit="个";
                 price=2;
-            }*/
+            }
             code=(((int)(barcode.charAt(9)))-48)
                     +(((int)(barcode.charAt(8)))-48)*10
                     +(((int)(barcode.charAt(7)))-48)*100
@@ -68,20 +68,21 @@ public class Main {
                     +(((int)(barcode.charAt(4)))-48)*100000;
             if(h[code]==0)
             {
+                System.out.printf("%d\n",j);
                 a[code]=new goods(barcode,name,unit,price);
                 h[code]++;
             }
             else
             {
+                System.out.printf("%d\n",j);
                 h[code]++;
             }
-            System.out.println("If continue?1.yes\t2.no");
+            /*System.out.println("If continue?1.yes\t2.no");
             choose=in.nextInt();
             if(choose==2)
             {
                 break;
-            }
-            //j++;
+            }*/
         }
         System.out.println("***商店购物清单***");
         float total = 0;
