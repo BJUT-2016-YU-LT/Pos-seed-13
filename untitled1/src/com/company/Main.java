@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 
-class main {
+class Main {
     public static void main(String[] args) {
         String name;
         String unit;
@@ -19,7 +19,7 @@ class main {
         Scanner in = new Scanner(System.in);
         in.next();
         while (true) {
-            String x = in.next();
+            String x = in.next();//修改格式
             if (x.charAt(0) != "{".charAt(0)) break;
             in.next();
             barcode = in.next();
