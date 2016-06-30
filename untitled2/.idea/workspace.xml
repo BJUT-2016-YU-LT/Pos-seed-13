@@ -84,9 +84,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -130,6 +130,7 @@
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../untitled3" />
   </component>
   <component name="RunManager" selected="Application.Main (1)">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true">
@@ -571,11 +572,12 @@
       <workItem from="1467262019814" duration="261000" />
       <workItem from="1467262306694" duration="49000" />
       <workItem from="1467264176976" duration="14000" />
+      <workItem from="1467265431040" duration="39000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="324000" />
+    <option name="totallyTimeSpent" value="363000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="206" y="66" width="1234" height="784" extended-state="0" />
@@ -620,6 +622,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/ruangong1/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ruangong1/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
