@@ -286,9 +286,17 @@ class Main
         Reader reader = null;
         try {
             reader=new InputStreamReader(new FileInputStream(file));
+            int x;
             for(i=0;i<10000;i++)
             {
-                s[i]=reader.read();
+                s[i]=0;
+                x=reader.read();
+                while(x!=10)
+                {
+                    s[i]*=10;
+                    s[i]+=x-48;
+                    x=reader.read();
+                }
             }
             reader.close();
         } catch (Exception e) {
