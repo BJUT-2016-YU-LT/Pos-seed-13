@@ -1,8 +1,10 @@
 package ruangong2;
 import java.util.Scanner;
+
+
 public class test2
 {
-    public static void main(String[] args)
+    public static void main(String args)
     {
         String name;
         String unit;
@@ -44,6 +46,11 @@ public class test2
                 unit="个";
                 pricee="2.00";
                 discount=(float)0.5;
+            }
+            if(barcode.length()!=10||discount>1||discount<0)
+            {
+                System.out.println("输入格式有误!");
+                return;
             }
             code=(((int)(barcode.charAt(9)))-48)
                     +(((int)(barcode.charAt(8)))-48)*10

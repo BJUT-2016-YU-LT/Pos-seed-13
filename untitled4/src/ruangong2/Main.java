@@ -1,14 +1,15 @@
 package ruangong2;
 import java.util.Scanner;
-
 public class Main
 {
     public static void main(String[] args)
     {
         String name;
         String unit;
-        String barcode;
+        String barcode = null;
+        String pricee;
         float price;
+        float discount;
         int code;
         int i;
         int[] h=new int[1000000];
@@ -16,57 +17,89 @@ public class Main
         for(i=0;i<1000000;i++)
         {
             h[i]=0;
-            c[i]=0;
         }
         goods[] a=new goods[1000000];
-        int choose;
         Scanner in=new Scanner(System.in);
+        in.next();
         while(true)
         {
-            System.out.print("barcode:");
             barcode=in.next();
-            System.out.print("name:");
+            if(barcode.charAt(0)!="'".charAt(0))break;
+            barcode=barcode.substring(1,barcode.length()-2);
+            in.next();
+            in.next();
             name=in.next();
-            System.out.print("unit:");
+            name=name.substring(1,name.length()-2);
+            in.next();
             unit=in.next();
-            System.out.print("price:");
-            price=in.nextFloat();
-            code=(((int)(barcode.charAt(0)))-48)+(((int)(barcode.charAt(1)))-48)*10+(((int)(barcode.charAt(2)))-48)*100+(((int)(barcode.charAt(3)))-48)*1000+(((int)(barcode.charAt(4)))-48)*10000+(((int)(barcode.charAt(5)))-48)*100000;
-            a[code]=new goods(barcode,name,unit,price);
-            System.out.println("If continue?1.yes\t2.no");
-            choose=in.nextInt();
-            if(choose==2)
+            unit=unit.substring(1,unit.length()-2);
+            in.next();
+            pricee=in.next();
+            if(pricee.charAt(pricee.length()-1)==',')
+                pricee=pricee.substring(0,pricee.length()-1);
+            String x=in.next();
+            if(x.charAt(0)=='d')
             {
-                break;
+                discount=in.nextFloat();
+                in.next();
             }
+            else if(x.charAt(0)=='p')
+            {
+                in.next();
+                in.next();
+                discount=-1;
+            }
+            else
+            {
+                discount=1;
+            }
+            code=(((int)(barcode.charAt(9)))-48)+(((int)(barcode.charAt(8)))-48)*10+(((int)(barcode.charAt(7)))-48)*100+(((int)(barcode.charAt(6)))-48)*1000+(((int)(barcode.charAt(5)))-48)*10000+(((int)(barcode.charAt(4)))-48)*100000;
+            /*if(h[code]==0)
+            {*/
+            price=(float)(((float)((int)((pricee.charAt(3))-48)))*0.01)+(float)(((float)((int)((pricee.charAt(2))-48)))*0.1)+(float)((int)((pricee.charAt(0))-48));
+            a[code]=new goods(barcode,name,unit,price,discount);
+            	/*h[code]++;
+            }
+            else
+            {
+            	h[code]++;
+            }*/
         }
-        System.out.println("请输入购买商品列表");
+        in.next();
         while(true)
         {
             barcode=in.next();
-            code=(((int)(barcode.charAt(0)))-48)+(((int)(barcode.charAt(1)))-48)*10+(((int)(barcode.charAt(2)))-48)*100+(((int)(barcode.charAt(3)))-48)*1000+(((int)(barcode.charAt(4)))-48)*10000+(((int)(barcode.charAt(5)))-48)*100000;
+            if(barcode.charAt(0)!="'".charAt(0))break;
+            if(barcode.charAt(barcode.length()-1)==',')
+                barcode=barcode.substring(1,barcode.length()-2);
+            else
+                barcode=barcode.substring(1,barcode.length()-1);
+            code=(((int)(barcode.charAt(9)))-48)+(((int)(barcode.charAt(8)))-48)*10+(((int)(barcode.charAt(7)))-48)*100+(((int)(barcode.charAt(6)))-48)*1000+(((int)(barcode.charAt(5)))-48)*10000+(((int)(barcode.charAt(4)))-48)*100000;
             h[code]++;
-            choose=in.nextInt();
-            if(choose==2)
-            {
-                break;
-            }
         }
-        System.out.printf("***商店购物清单***\n");
-        System.out.printf("打印时间：2016年06月27日 08:41:05\n");
-        System.out.printf("----------------\n");
-        float total = 0;
+        System.out.println("***商店购物清单***");
+        float total=0;
+        float save=0;
         float totalcount=0;
         float count;
         for(i=0;i<1000000;i++)
         {
             if(h[i]>0)
             {
-                count=(float)(a[i].Getprice()*(int)(h[i]/3));
-                System.out.printf("名称:%s,数量:%d%s,单价:%.2f(元),小计:%.2f(元)\n",a[i].Getname(),h[i],a[i].Getunit(),a[i].Getprice(),a[i].Getprice()*(h[i]-h[i]/3));
-                total+=(float)(a[i].Getprice()*h[i]);
-                totalcount+=count;
-                c[i]=h[i]/3;
+                if(a[i].Getdiscount()==-1)
+                {
+                    count=(float)(a[i].Getprice()*(int)(h[i]/3));
+                    System.out.printf("名称:%s,数量:%d%s,单价:%.2f(元),小计:%.2f(元)\n",a[i].Getname(),h[i],a[i].Getunit(),a[i].Getprice(),a[i].Getprice()*(h[i]-h[i]/3));
+                    total+=(float)(a[i].Getprice()*(h[i]-h[i]/3));
+                    totalcount+=count;
+                    c[i]=h[i]/3;
+                }
+                else
+                {
+                    System.out.printf("名称:%s,数量:%d%s,单价:%.2f(元),小计:%.2f(元)\n",a[i].Getname(),h[i],a[i].Getunit(),a[i].Getprice(),a[i].Getprice()*h[i]*a[i].Getdiscount());
+                    total+=(float)(a[i].Getprice()*h[i]*a[i].Getdiscount());
+                    save+=(float)(a[i].Getprice()*h[i]*(1-a[i].Getdiscount()));
+                }
             }
         }
         /*System.out.printf("名称:可口可乐,数量:%d,单价:3.00(元),小计:%d\n",c0,c0*3);
@@ -82,9 +115,9 @@ public class Main
             }
         }
         System.out.printf("----------------\n");
-        System.out.printf("总计:%.2f\n",total);
-        System.out.printf("节省:%.2f\n",totalcount);
-        System.out.printf("******************\n");
+        System.out.printf("总计:%.2f(元)\n",total);
+        System.out.printf("节省:%.2f(元)\n",save+totalcount);
+        System.out.printf("********************\n");
     }
     public static class goods
     {
@@ -92,12 +125,14 @@ public class Main
         private String name;
         private String unit;
         private float price;
-        goods(String a,String b,String c,float d)
+        private float discount;
+        goods(String a,String b,String c,float d,float e)
         {
             barcode=a;
             name=b;
             unit=c;
             price=d;
+            discount=e;
         }
         public String Getbarcode()
         {
@@ -115,6 +150,12 @@ public class Main
         {
             return price;
         }
+        public float Getdiscount()
+        {
+            return discount;
+        }
     }
 
 }
+
+

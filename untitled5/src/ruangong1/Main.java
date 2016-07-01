@@ -34,7 +34,10 @@ public class Main
             barcode=barcode.substring(1,barcode.length()-2);
 
             in.next();
-            code=(((int)(barcode.charAt(7)))-48)+(((int)(barcode.charAt(6)))-48)*10+(((int)(barcode.charAt(5)))-48)*100+(((int)(barcode.charAt(4)))-48)*1000;
+            code=(((int)(barcode.charAt(7)))-48)
+                    +(((int)(barcode.charAt(6)))-48)*10
+                    +(((int)(barcode.charAt(5)))-48)*100
+                    +(((int)(barcode.charAt(4)))-48)*1000;
             in.next();
             name=in.next();
             name=name.substring(1,name.length()-2);
@@ -73,7 +76,9 @@ public class Main
                 discountt=in.next();
                 if(discountt.charAt(discountt.length()-1)==',')
                     discountt=discountt.substring(0,discountt.length()-1);
-                discount=(float)(((float)((int)((discountt.charAt(3))-48)))*0.01)+(float)(((float)((int)((discountt.charAt(2))-48)))*0.1)+(float)((int)((discountt.charAt(0))-48));
+                discount=(float)(((float)((int)((discountt.charAt(3))-48)))*0.01)
+                        +(float)(((float)((int)((discountt.charAt(2))-48)))*0.1)
+                        +(float)((int)((discountt.charAt(0))-48));
             }
             else if(x.length()>=2 && (x.charAt(0)=='p' || x.charAt(1)=='p'))
             {
@@ -85,12 +90,19 @@ public class Main
                 vipp=in.next();
                 if(vipp.charAt(vipp.length()-1)==',')
                     vipp=vipp.substring(0,vipp.length()-1);
-                vip=(float)(((float)((int)((vipp.charAt(3))-48)))*0.01)+(float)(((float)((int)((vipp.charAt(2))-48)))*0.1)+(float)((int)((vipp.charAt(0))-48));
+                vip=(float)(((float)((int)((vipp.charAt(3))-48)))*0.01)
+                        +(float)(((float)((int)((vipp.charAt(2))-48)))*0.1)
+                        +(float)((int)((vipp.charAt(0))-48));
                 discount=1;
             }
             else
             {
-                code=(((int)(barcode.charAt(9)))-48)+(((int)(barcode.charAt(8)))-48)*10+(((int)(barcode.charAt(7)))-48)*100+(((int)(barcode.charAt(6)))-48)*1000+(((int)(barcode.charAt(5)))-48)*10000+(((int)(barcode.charAt(4)))-48)*100000;
+                code=(((int)(barcode.charAt(9)))-48)
+                        +(((int)(barcode.charAt(8)))-48)*10
+                        +(((int)(barcode.charAt(7)))-48)*100
+                        +(((int)(barcode.charAt(6)))-48)*1000
+                        +(((int)(barcode.charAt(5)))-48)*10000
+                        +(((int)(barcode.charAt(4)))-48)*100000;
                 price=(float)(((float)((int)((pricee.charAt(3))-48)))*0.01)+(float)(((float)((int)((pricee.charAt(2))-48)))*0.1)+(float)((int)((pricee.charAt(0))-48));
                 a[code]=new goods(barcode,name,unit,price,discount,vip);
                 continue;
